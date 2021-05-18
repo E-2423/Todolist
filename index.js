@@ -19,3 +19,8 @@ function addTodo (){
     todoList.push(todoObject);
     //console.log(todoObject);
 };
+
+function doneTodo (todoId) {
+    const selectedTodoIndex = todoList.findIndex(myTodo => myTodo.id == todoId);
+    todoList[selectedTodoIndex].isDone = true;
+}
