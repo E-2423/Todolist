@@ -22,14 +22,14 @@ function addTodo (){
 }
 
 function doneTodo (todoId) {
-    const selectedTodoIndex = todoList.findIndex(item => item.id == todoId);
+    const selectedTodoIndex = todoList.findIndex((item)=> item.id == todoId);
     todoList[selectedTodoIndex].isDone = true;
 
     displayTodos();
 }
 
 function displayTodos (){
-    todoListElement.innerText = "";
+    todoListElement.innerHTML = "";
     document.querySelector("#myInput").value = "";
 
 
@@ -39,10 +39,12 @@ function displayTodos (){
         listElement.setAttribute("data-id", item.id);
         
 
-        if(item.isDone) listElement.classList.add("checked");
+        if(item.isDone){
+            listElement.classList.add("checked");
+        } 
 
         listElement.addEventListener("click", function(e) {
-            const selectedId = e.target.getAttribute("data-is");
+            const selectedId = e.target.getAttribute("data-id");
             doneTodo(selectedId);
         });
 
@@ -50,4 +52,4 @@ function displayTodos (){
     });
 }
 
-displayTodos();
+
